@@ -19,7 +19,7 @@
     
     async function load() 
     {
-      var url = "http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + artist + "&album=" + album + "&format=json";
+      var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + artist + "&album=" + album + "&format=json";
       let obj = await (await fetch(url)).json();
       var namMember = new Array();
       for (var i = 0; i < obj.album.tracks.track.length; i++) 
@@ -614,7 +614,7 @@
 
   <meta http-equiv="x-dns-prefetch-control" content="off" />
 </head>
-<link href='http://fonts.googleapis.com/css?family=Josefin+Slab:600' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Josefin+Slab:600' rel='stylesheet' type='text/css'>
 
 <body text="#000000" bgcolor="#ffffff" link="#e097d9" vlink="#e097d9" alink="#79a2c9">
 
