@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!doctype HTML>
+
+<html>
+
+  <script src="scripts/myscripts.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+  <meta http-equiv="Content-Style-Type" content="text/css">
+
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta http-equiv="x-dns-prefetch-control" content="off" />
+
+</head>
+
+<body text="#000000" bgcolor="#ffffff" link="#e097d9" vlink="#e097d9" alink="#79a2c9">
+
+  <p class="instructions">
+    <center><br /><br />
+      <b>SORTER NAME</b><br /><br>pick who you like better in each battle to get an accurate list of your<br />favorite
+      members from the group.<br />note: hitting 'no opinion' or 'I like both' frequently will negatively affect your
+      results.<br /><br />
+    </center>
+
+  </p>
+
+  <table id="mainTable" align="center">
+
+    <tbody>
+      <tr>
+
+        <td id="battleNumber" colspan="3" style="padding-bottom: 10px;" style="text-align:center;"><b>battle #1<br>0%
+            sorted.</b></td>
+
+      </tr>
+
+      <tr>
+
+        <!-- onclick="if(finishFlag==0) sortList(-1);"  -->
+        <td id="leftField" rowspan="2" style="text-align:center;"></td>
+
+
+        <!-- onclick="if(finishFlag==0) sortList(0);" -->
+        <td class="middleField"  style="text-align:center;">
+
+          I like both
+
+        </td>
+
+        <!-- onclick="if(finishFlag==0) sortList(1);" -->
+        <td id="rightField"  rowspan="2" style="text-align:center;"></td>
+
+      </tr>
+
+      <tr>
+
+        <!-- onclick="if(finishFlag==0) sortList(0);" -->
+        <td class="middleField"  style="text-align:center;">
+
+          no opinion
+
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+
+  <br><br>
+
+  <div id="resultField" style="text-align: center;">
+
+    <br>
+
+  </div>
+
+  <p class="other">
+    </small></center></small>
+  </p>
+
+
+
+</body>
+
+</html>
