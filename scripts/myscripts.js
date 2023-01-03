@@ -1,5 +1,4 @@
     var apikey = "9f3a144b762612624edfc59b0e3451ad";
-    console.log(artist)
     var albumList = new Array();
     async function load(album) 
     {
