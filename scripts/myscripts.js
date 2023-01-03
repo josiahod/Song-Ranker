@@ -1,9 +1,9 @@
     var apikey = "9f3a144b762612624edfc59b0e3451ad";
-    var artist = prompt("artist name");
-    var album = prompt("album name");
-    
-    async function load() 
+    console.log(artist)
+    var albumList = new Array();
+    async function load(album) 
     {
+
       var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + artist + "&album=" + album + "&format=json";
       let obj = await (await fetch(url)).json();
       var namMember = new Array();
@@ -12,7 +12,6 @@
         namMember.push(obj.album.tracks.track[i].name) 
       }
     
-
       var lstMember = new Array();
 
       var parent = new Array();
@@ -351,7 +350,7 @@
 
         if (cmp1 < 0) {
 
-          str = "battle #" + (numQuestion - 1) + "<br>" + Math.floor(finishSize * 100 / totalSize) + "% sorted.";
+          str = "Question #" + (numQuestion - 1) + "<br>" + Math.floor(finishSize * 100 / totalSize) + " percent completed.";
 
           document.getElementById("battleNumber").innerHTML = str;
 
@@ -391,9 +390,9 @@
 
 
 
-        str += "<table style=\"width:200px; font-size:18px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse\" align=\"center\">";
+        str += "<table style=\"width:200px; color: black; font-size:18px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse\" align=\"center\">";
 
-        str += "<tr><td style=\"color:#ffffff; background-color:#e097d9; text-align:center;\">rank<\/td><td style=\"color:#ffffff; background-color:#e097d9; text-align:center;\">options<\/td><\/tr>";
+        str += "<tr><td style=\"color:#ffffff; background-color:#c72727; text-align:center;\">rank<\/td><td style=\"color:#ffffff; background-color:#c72727; text-align:center;\">track names<\/td><\/tr>";
 
 
 
@@ -433,7 +432,8 @@
 
       function showImage() {
 
-        var str0 = "battle #" + numQuestion + "<br>" + Math.floor(finishSize * 100 / totalSize) + "% sorted.";
+        var str0 = "Question #" + numQuestion + "<br>" + Math.floor(finishSize * 100 / totalSize) + " percent completed.";
+        
 
         var str1 = "" + toNameFace(lstMember[cmp1][head1]);
 
@@ -462,20 +462,6 @@
 
         var str = namMember[n];
 
-
-
-        /*
-         
-        str += '<br />';
-         
-        switch(n) {
-         
-        //case -1 Because it is a sample, delete it
-         
-        case -1: str+=""; break;
-         
-        }*/
-
         return str;
 
       }
@@ -487,24 +473,44 @@
 
     var w = document.getElementById("leftField");
     w.addEventListener('click', function() { 
+      if(finishFlag == 0)
+      {
       sortList(-1);
+      }
     }, false);
 
     var x = document.getElementsByClassName("middleField");
     x[0].addEventListener('click', function() { 
+      if(finishFlag == 0)
+      {
       sortList(0);
+      }
     }, false);
  
     var y = document.getElementById("rightField");
     y.addEventListener('click', function() { 
+      if(finishFlag == 0)
+      {
       sortList(1);
+      }
     }, false);
 
     x[1].addEventListener('click', function() { 
+      if(finishFlag == 0)
+      {
       sortList(0);
+      }
     }, false);
+
+
+
 
     }
 
-    load();
-
+    var j = document.getElementById("selectNumber");
+    j.addEventListener('change', function() 
+    { 
+      load(j.value); 
+      
+    }, false);
+    
