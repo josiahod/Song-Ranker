@@ -1,16 +1,32 @@
     var apikey = "9f3a144b762612624edfc59b0e3451ad";
     var albumList = new Array();
-    async function load(album) 
+    var percentPre = 0;
+
+
+    async function load(album, newArtist) 
     {
 
-      var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + artist + "&album=" + album + "&format=json";
+      document.getElementById('header').innerHTML = ""; 
+
+      var objTo = document.getElementById('AlbumName');
+      objTo.textContent = album + " Ranking";
+
+
+      var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + newArtist + "&album=" + album + "&format=json";
       let obj = await (await fetch(url)).json();
       var namMember = new Array();
       for (var i = 0; i < obj.album.tracks.track.length; i++) 
       {
         namMember.push(obj.album.tracks.track[i].name) 
       }
-    
+
+
+      var src = document.getElementById("header");
+      var img = document.createElement("img");
+      img.src = obj.album.image[3]['#text'] ;
+      var src = document.getElementById("header");
+      src.appendChild(img);
+
       var lstMember = new Array();
 
       var parent = new Array();
@@ -349,10 +365,27 @@
 
         if (cmp1 < 0) {
 
-          str = "Question #" + (numQuestion - 1) + "<br>" + Math.floor(finishSize * 100 / totalSize) + " percent completed.";
 
+
+          str = "Question #" + (numQuestion - 1) + "<br>" + Math.floor(finishSize * 100 / totalSize) + " percent completed.";
           document.getElementById("battleNumber").innerHTML = str;
 
+          var elem2 = document.getElementById("myBar");
+          var newWidth = elem2.style.width;
+          var id2 = setInterval(frame, 10);
+          function frame() 
+          { 
+            newWidth++
+            elem2.style.width = newWidth + "%";
+            elem2.innerHTML = newWidth  + "%";
+            if( isNaN(elem2.style.width) )
+            {
+              elem2.style.width = 96 + "%";
+            elem2.innerHTML = 100  + "%";
+              clearInterval(id2);  
+            }
+           
+          }
 
 
           showResult();
@@ -429,16 +462,53 @@
 
       //Indicates two elements to compare+++++++++++++++++++++++++++++++++++
 
-      function showImage() {
+      function showImage() 
+      {
+        
+        var counter = 0;
+        function move(prePercent, PostPercent) 
+        {
+          if (counter== 0) 
+          {
+            
+            counter = 1;
+            var elem = document.getElementById("myBar");
+            console.log(elem.style.width)
+            var width2 = parseFloat(elem.style.width) 
+            console.log(width2, PostPercent);
+            var width = width2;
+            var id = setInterval(frame, 25);
+            function frame()
+            {
+              if ( (width >= PostPercent) || isNaN(PostPercent) )
+              {
+                clearInterval(id);
+                counter = 0;
+                console.log("executed");
+              } 
+              else 
+              {
+                width++;
+                elem.style.width = width + "%";
+                elem.innerHTML = width + "%";
+              }
+          }
+        } 
+      }
 
-        var str0 = "Question #" + numQuestion + "<br>" + Math.floor(finishSize * 100 / totalSize) + " percent completed.";
+
+      var str0 = "Question #" + numQuestion + "<br>" + Math.floor(finishSize * 100 / totalSize) + " percent completed.";
+      move(percentPre, Math.floor(finishSize * 100 / totalSize));
+      percentPre = Math.floor(finishSize * 100 / totalSize);
+
         
 
         var str1 = "" + toNameFace(lstMember[cmp1][head1]);
 
         var str2 = "" + toNameFace(lstMember[cmp2][head2]);
 
-
+       
+        
 
         document.getElementById("battleNumber").innerHTML = str0;
 
@@ -506,10 +576,21 @@
 
     }
 
+
+
+
     var j = document.getElementById("selectNumber");
     j.addEventListener('change', function() 
     { 
-      load(j.value); 
-      
+
+      var elem3 = document.getElementById("myBar");
+      elem3.style.width = 0 + "%";
+      elem3.innerHTML = ""
+
+      document.getElementById("resultField").innerHTML = "";
+
+
+      var newArtist = artNames.dataset.artist;
+      load(j.value, newArtist); 
     }, false);
     
