@@ -5,18 +5,13 @@
 
 <html>
 
-  <select id="selectNumber">
-    <option></option>
-  </select>
-
-  <script src="scripts/script2.js"></script>
-  <script src="scripts/myscripts.js"></script>
   <link rel="stylesheet" href="css/style.css" />
 
+ 
   
 
 
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
 
   <meta http-equiv="Content-Style-Type" content="text/css">
@@ -31,13 +26,28 @@
 
 <body text="#000000" bgcolor="#ffffff" link="#e097d9" vlink="#e097d9" alink="#79a2c9">
 
-  <div id="bkg">
+  <div id="artNames" data-artist=""> </div>
+  
+  <center>
+  <select id="selectNumber">
+    <option></option>
+  </select>
+  
+
+  <div id="NewArtistButton">
+  <p id="ArtistButton">Pick A Artist</button>
+</div>
+
+</center>
 
 
 
   <p class="instructions">
     <center><br /><br />
-      <b>Album Ranker</b><br /><br>
+      <p id="AlbumName">Pick An Album To Rank</p>
+
+      <div id="header"></div>
+
     </center>
 
   </p>
@@ -46,6 +56,10 @@
 
     <tbody>
       <tr>
+
+        <div id="myProgress">
+          <div id="myBar"></div>
+        </div>
 
         <td id="battleNumber" colspan="3" style="padding-bottom: 10px;" style="text-align:center;"><b>Question 1<br>0 percent
             completed.</b></td>
@@ -86,8 +100,11 @@
 
   <br><br>
 
-  <div id="resultField" style="text-align: center;">
+  <center>
 
+
+  <div id="resultField" style="text-align: center; ">
+  </center>
     <br>
 
   </div>
@@ -98,9 +115,10 @@
 
   
 
-  </div>
+
 </body>
 
-
+<script src="scripts/script2.js"></script>
+  <script src="scripts/myscripts.js"></script>
 
 </html>
