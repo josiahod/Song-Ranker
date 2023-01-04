@@ -1,5 +1,7 @@
 
+
     #mainTable {
+      
 
       font-size: 19px;
 
@@ -21,9 +23,54 @@
 
     }
 
-    #leftField, #rightField, .middleField
+    #selectNumber > ul > li 
     {
-      background-color: #ffffff;
+
+      font-size: 1.8em;
+
+      text-align:center;
+       
+      display:inline-block;
+  
+      margin-left: 15px;       /* This is when the drop down box appears */
+  
+      position: relative;
+  
+  }
+
+  #selectNumber > ul 
+  {
+    font-size: 1.8em;
+
+    text-align:center;
+}
+
+#selectNumber
+{
+  background-color: #e6e3db;
+  text-align:center;
+  font-size: 1.4em;
+  height: 3em;
+  margin: 25px;
+  margin-bottom: 10px;
+  width: 18em;
+  
+}
+
+#NewArtistButton
+{
+  margin-top: 10px;
+  width: 30%;
+  height: auto;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+
+
+    #leftField, #rightField, .middleField, #NewArtistButton
+    {
+      background-color: #e6e3db;
     }
 
     
@@ -82,18 +129,49 @@
 
       width: 600px;
 
-      margin: 0 auto;
+      margin: auto;
 
       font-family: 'Times New Roman', erif;
 
       background-color: #e5e5f7;
-      opacity: 0.6;
-      background-image:  radial-gradient(#c49a1f 0.5px, transparent 0.5px), radial-gradient(#c49a1f 0.5px, #e5e5f7 0.5px);
-      background-size: 20px 20px;
-      background-position: 0 0,10px 10px;
-
+opacity: 1;
+background-image:  linear-gradient(#444cf7 1px, transparent 1px), linear-gradient(to right, #444cf7 1px, #e5e5f7 1px);
+background-size: 20px 20px;
 
     }
+
+    html, body 
+    {
+
+      background-color: #e5e5f7;
+opacity: 1;
+background-image:  radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+background-size: 20px 20px;
+background-position: 0 0,10px 10px;
+
+      max-width: 100%;
+      overflow-x: hidden;
+  }
+
+  #AlbumName
+  {
+    font-size: 1.8em;
+  }
+
+  #myBar {
+    width: 0%;
+    height: 30px;
+    background-color: #ecc966;
+    text-align: center; /* To center it horizontally (if you want) */
+    line-height: 30px; /* To center it vertically */
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    border:1px solid black;
+    margin: 10px;
+
+  }
+
+
     
     
   
