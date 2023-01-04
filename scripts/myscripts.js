@@ -473,7 +473,9 @@
             
             counter = 1;
             var elem = document.getElementById("myBar");
+            console.log(elem.style.width)
             var width2 = parseFloat(elem.style.width) 
+            console.log(width2, PostPercent);
             var width = width2;
             var id = setInterval(frame, 25);
             function frame()
@@ -482,6 +484,7 @@
               {
                 clearInterval(id);
                 counter = 0;
+                console.log("executed");
               } 
               else 
               {
