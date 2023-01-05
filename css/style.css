@@ -1,12 +1,15 @@
 
 
- 
+ table
+ {
+  font-family: 'Arial';
+ }
    
    #mainTable {
       
       font-size: 19px;
 
-      font-family: 'Times New Roman', serif;
+      font-family: 'Monaco', monospace;
 
       text-align: center;
 
@@ -48,6 +51,7 @@
 
 #selectNumber
 {
+  font-family: 'Monaco', monospace;
   background-color: #e6e3db;
   text-align:center;
   font-size: 1.4em;
@@ -60,6 +64,7 @@
 
 #NewArtistButton
 {
+  font-family: 'Monaco', monospace;
   margin-top: 10px;
   width: 30%;
   height: auto;
@@ -151,7 +156,8 @@ background-position: 0 0,10px 10px;
 
   #AlbumName
   {
-    font-size: 1.8em;
+    font-family: 'Monaco', monospace;
+    font-size: 1.2em;
     margin-top: 1%;
   }
 
