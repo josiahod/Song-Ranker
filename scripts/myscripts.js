@@ -16,6 +16,7 @@
       var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + newArtist + "&album=" + album + "&format=json";
       let obj = await (await fetch(url)).json();
       var namMember = new Array();
+      namMember.splice(0, namMember.length);
       try {
         for (var i = 0; i < obj.album.tracks.track.length; i++) 
       {
@@ -36,12 +37,16 @@
       src.appendChild(img);
 
       var lstMember = new Array();
+      lstMember.splice(0, lstMember.length);
 
       var parent = new Array();
-
+      parent.splice(0, parent.length);
+      
       var equal = new Array();
+      equal.splice(0, equal.length);
 
       var rec = new Array();
+      rec.splice(0, rec.length);
 
       var cmp1, cmp2;
 
@@ -77,6 +82,7 @@
         //The sequence that you should sort
 
         lstMember[n] = new Array();
+        
 
         for (i = 0; i < namMember.length; i++) {
 
@@ -566,13 +572,13 @@
       }
     }, false);
 
-    var x = document.getElementsByClassName("middleField");
+    /* var x = document.getElementsByClassName("middleField");
     x[0].addEventListener('click', function() { 
       if(finishFlag == 0)
       {
       sortList(0);
       }
-    }, false);
+    }, false); */
  
     var y = document.getElementById("rightField");
     y.addEventListener('click', function() { 
