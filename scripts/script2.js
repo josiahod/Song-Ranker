@@ -19,7 +19,6 @@ document.getElementById("loading").style.display = "none";
       albumList = [];
       var url = "https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + changedArtist + "&autocorrect=1&api_key=" + apikey + "&format=json";
       let obj = await (await fetch(url)).json();
-      var namMember = new Array();
       for (var i = 0; (i < obj.topalbums.album.length) && (i < 20); i++) 
       {
         albumList.push(obj.topalbums.album[i].name) 
