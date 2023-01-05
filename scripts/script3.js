@@ -16,6 +16,7 @@ async function makeList(albumList)
 
 
     document.getElementById("selectNumber").style.display = "none";
+    document.getElementById("ArtistButton").style.display = "none";
 
     document.getElementById("AlbumName").style.display = "block";
 
@@ -93,6 +94,7 @@ async function makeList(albumList)
       
    
       document.getElementById("selectNumber").style.display = "block";
+      document.getElementById("ArtistButton").style.display = "block";
 
       document.getElementById("AlbumName").style.display = "block";
 
