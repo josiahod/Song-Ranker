@@ -3,7 +3,7 @@ async function makeList(albumList)
 
 
 
-    var myPix = new Array("img/Ghost.gif", "img/hourglass.gif", "img/Rhombus.gif", "img/book.gif", "img/plant.gif" );  
+    var myPix = new Array("img/ghost.gif", "img/hourglass.gif", "img/Rhombus.gif", "img/book.gif", "img/plant.gif" );  
     var randomNum = Math.floor(Math.random() * myPix.length);
      document.getElementById("loading").src = myPix[randomNum];
 
@@ -46,7 +46,8 @@ async function makeList(albumList)
      {
          try 
          {
-            var url2 = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + artNames.dataset.artist + "&album=" + albumList[i] + "&format=json";
+            let newEncode = encodeURIComponent(albumList[i]);
+            var url2 = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + artNames.dataset.artist + "&album=" + newEncode + "&format=json";
             let obj2 = await (await fetch(url2)).json();
             var length = obj2.album.tracks.track.length;
             if( isNaN(length) )
@@ -65,7 +66,8 @@ async function makeList(albumList)
      {
          try 
          {
-            var url2 = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + artNames.dataset.artist + "&album=" + albumList[i] + "&format=json";
+            let newEncode = encodeURIComponent(albumList[i]);
+            var url2 = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + artNames.dataset.artist + "&album=" + newEncode + "&format=json";
             let obj2 = await (await fetch(url2)).json();
             var length = obj2.album.tracks.track.length;
             if( isNaN(length) )
@@ -84,6 +86,7 @@ async function makeList(albumList)
       for(var i = 0; i < albumList.length; i++) 
       {
         var opt = albumList[i];
+        opt = opt.replace("FOlKlORE", "folklore");
         var el = document.createElement("option");
         el.textContent = opt;
         el.value = opt;
