@@ -26,7 +26,7 @@
 
 <body text="#000000" bgcolor="#ffffff" link="#e097d9" vlink="#e097d9" alink="#79a2c9">
 
-  <div id="artNames" data-artist=""> </div>
+  <p id="artNames" data-artist=""> </p>
   
   <center>
   <select id="selectNumber">
@@ -35,30 +35,39 @@
   
 
   <div id="NewArtistButton">
-  <p id="ArtistButton">Pick A Artist</button>
+  <p id="ArtistButton">Pick An Artist</button>
 </div>
+
+  <img SRC="img/ghost.gif" margin-top= "5%" width= "15%" height= "auto"; id="loading">
+ 
+
+  
+
 
 </center>
 
 
 
-  <p class="instructions">
-    <center><br /><br />
-      <p id="AlbumName">Pick An Album To Rank</p>
+  
+    <center>
+      <p id="AlbumName">Select An Artist</p>
 
       <div id="header"></div>
 
     </center>
 
-  </p>
+    <div id="myBar"></div>
 
+
+    <center>
   <table id="mainTable" align="center">
+  </center>
+ 
 
     <tbody>
       <tr>
 
         <div id="myProgress">
-          <div id="myBar"></div>
         </div>
 
         <td id="battleNumber" colspan="3" style="padding-bottom: 10px;" style="text-align:center;"><b>Question 1<br>0 percent
@@ -97,13 +106,12 @@
 
     </tbody>
   </table>
-
   <br><br>
 
   <center>
 
-
-  <div id="resultField" style="text-align: center; ">
+   
+     <div id="resultField" style="text-align: center; ">
   </center>
     <br>
 
@@ -119,6 +127,10 @@
 </body>
 
 <script src="scripts/script2.js"></script>
+<script src="scripts/script3.js"></script>
   <script src="scripts/myscripts.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/loading-bar.css"/>
+<script type="text/javascript" src="scripts/loading-bar.js"></script>
 
 </html>
