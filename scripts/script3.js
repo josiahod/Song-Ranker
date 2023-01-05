@@ -3,7 +3,7 @@ async function makeList(albumList)
 
 
 
-    var myPix = new Array("img/ghost.gif", "img/hourglass.gif", "img/Rhombus.gif", "img/book.gif", "img/plant.gif" );  
+    var myPix = new Array("img/Ghost.gif", "img/hourglass.gif", "img/Rhombus.gif", "img/book.gif", "img/plant.gif" );  
     var randomNum = Math.floor(Math.random() * myPix.length);
      document.getElementById("loading").src = myPix[randomNum];
 
