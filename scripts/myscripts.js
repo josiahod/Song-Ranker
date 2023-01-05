@@ -5,6 +5,8 @@
 
     async function load(album, newArtist) 
     {
+      Encodedalbum = encodeURIComponent(album);
+      console.log(album);
 
       document.getElementById('header').innerHTML = ""; 
       document.getElementById("mainTable").style.display = "initial";
@@ -13,7 +15,7 @@
       var objTo = document.getElementById('AlbumName');
       objTo.textContent = album + " Ranking";
 
-      var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + newArtist + "&album=" + album + "&format=json";
+      var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + newArtist + "&album=" + Encodedalbum + "&format=json";
       let obj = await (await fetch(url)).json();
       var namMember = new Array();
       namMember.splice(0, namMember.length);
@@ -572,13 +574,7 @@
       }
     }, false);
 
-    /* var x = document.getElementsByClassName("middleField");
-    x[0].addEventListener('click', function() { 
-      if(finishFlag == 0)
-      {
-      sortList(0);
-      }
-    }, false); */
+  
  
     var y = document.getElementById("rightField");
     y.addEventListener('click', function() { 
@@ -588,12 +584,7 @@
       }
     }, false);
 
-    x[1].addEventListener('click', function() { 
-      if(finishFlag == 0)
-      {
-      sortList(0);
-      }
-    }, false);
+   
 
 
     }
