@@ -6,7 +6,6 @@
     async function load(album, newArtist) 
     {
       Encodedalbum = encodeURIComponent(album);
-      console.log(album);
 
       document.getElementById('header').innerHTML = ""; 
       document.getElementById("mainTable").style.display = "initial";
@@ -27,7 +26,6 @@
         
       } catch (error) 
       {
-        alert("Please Select A Different Album");
       }
       
 
@@ -441,7 +439,12 @@
 
         str += "<table style=\"width:200px; color: black; font-size:18px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse\" align=\"center\">";
         str += "<caption>" + album + " Ranking</caption>";
-        str += "<tr><td style=\"color:#ffffff; background-color:#c72727; text-align:center;\">rank<\/td> <td style=\"color:#ffffff; background-color:#c72727; text-align:center;\">track names<\/td><\/tr>";
+        var hue = Math.floor(Math.random() * 360),
+        saturation =  Math.floor(Math.random() * 100),
+       lightness =  Math.floor(Math.random() * 50),
+        color = "hsl(" + hue + ", " + saturation + "%, " + lightness + "%)";
+
+        str += "<tr><td style=\"color:#ffffff; background-color:" + color + "; text-align:center;\">rank<\/td> <td style=\"color:#ffffff; background-color:" + color + "; text-align:center;\">track names<\/td><\/tr>";
 
 
 
