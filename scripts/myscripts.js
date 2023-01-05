@@ -7,18 +7,26 @@
     {
 
       document.getElementById('header').innerHTML = ""; 
+      document.getElementById("mainTable").style.display = "initial";
+      document.getElementById("myBar").style.display = "block";
 
       var objTo = document.getElementById('AlbumName');
       objTo.textContent = album + " Ranking";
 
-
       var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + newArtist + "&album=" + album + "&format=json";
       let obj = await (await fetch(url)).json();
       var namMember = new Array();
-      for (var i = 0; i < obj.album.tracks.track.length; i++) 
+      try {
+        for (var i = 0; i < obj.album.tracks.track.length; i++) 
       {
         namMember.push(obj.album.tracks.track[i].name) 
       }
+        
+      } catch (error) 
+      {
+        alert("Please Select A Different Album");
+      }
+      
 
 
       var src = document.getElementById("header");
@@ -56,6 +64,7 @@
       //The initialization of the variable+++++++++++++++++++++++++++++++++++++++++++++
 
       function initList() {
+
 
         var n = 0;
 
@@ -423,8 +432,8 @@
 
 
         str += "<table style=\"width:200px; color: black; font-size:18px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse\" align=\"center\">";
-
-        str += "<tr><td style=\"color:#ffffff; background-color:#c72727; text-align:center;\">rank<\/td><td style=\"color:#ffffff; background-color:#c72727; text-align:center;\">track names<\/td><\/tr>";
+        str += "<caption>" + album + " Ranking</caption>";
+        str += "<tr><td style=\"color:#ffffff; background-color:#c72727; text-align:center;\">rank<\/td> <td style=\"color:#ffffff; background-color:#c72727; text-align:center;\">track names<\/td><\/tr>";
 
 
 
@@ -453,8 +462,12 @@
         str += "<\/table>";
 
 
+        document.getElementById("mainTable").style.display = "none";
+        document.getElementById("myBar").style.display = "none";
 
         document.getElementById("resultField").innerHTML = str;
+
+        window.scrollTo(0, document.body.scrollHeight);
 
       }
 
@@ -464,7 +477,7 @@
 
       function showImage() 
       {
-        
+
         var counter = 0;
         function move(prePercent, PostPercent) 
         {
@@ -473,9 +486,7 @@
             
             counter = 1;
             var elem = document.getElementById("myBar");
-            console.log(elem.style.width)
             var width2 = parseFloat(elem.style.width) 
-            console.log(width2, PostPercent);
             var width = width2;
             var id = setInterval(frame, 25);
             function frame()
@@ -484,7 +495,6 @@
               {
                 clearInterval(id);
                 counter = 0;
-                console.log("executed");
               } 
               else 
               {
@@ -502,8 +512,15 @@
       percentPre = Math.floor(finishSize * 100 / totalSize);
 
         
+        try {
 
-        var str1 = "" + toNameFace(lstMember[cmp1][head1]);
+          var str1 = "" + toNameFace(lstMember[cmp1][head1]);
+          
+        } catch (error) 
+        {
+          alert("Please Select A Different Album");
+        }
+       
 
         var str2 = "" + toNameFace(lstMember[cmp2][head2]);
 
@@ -536,6 +553,7 @@
       }
 
       initList();
+
 
     showImage();
       
@@ -572,9 +590,10 @@
     }, false);
 
 
-
-
     }
+
+   
+
 
 
 
@@ -582,13 +601,11 @@
     var j = document.getElementById("selectNumber");
     j.addEventListener('change', function() 
     { 
-
       var elem3 = document.getElementById("myBar");
       elem3.style.width = 0 + "%";
       elem3.innerHTML = ""
 
       document.getElementById("resultField").innerHTML = "";
-
 
       var newArtist = artNames.dataset.artist;
       load(j.value, newArtist); 
