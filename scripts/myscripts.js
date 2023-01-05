@@ -440,8 +440,8 @@
         str += "<table style=\"width:200px; color: black; font-size:18px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse\" align=\"center\">";
         str += "<caption>" + album + " Ranking</caption>";
         var hue = Math.floor(Math.random() * 360),
-        saturation =  Math.floor(Math.random() * 100),
-       lightness =  Math.floor(Math.random() * 50),
+        saturation =  100,
+       lightness =  26,
         color = "hsl(" + hue + ", " + saturation + "%, " + lightness + "%)";
 
         str += "<tr><td style=\"color:#ffffff; background-color:" + color + "; text-align:center;\">rank<\/td> <td style=\"color:#ffffff; background-color:" + color + "; text-align:center;\">track names<\/td><\/tr>";
