@@ -2,7 +2,7 @@ var apikey = "9f3a144b762612624edfc59b0e3451ad";
 //var artist = prompt("artist name");
 var albumList = new Array();
 document.getElementById("AlbumName").style.display = "none";
-document.getElementById("SelectNumber").style.display = "none";
+document.getElementById("selectNumber").style.display = "none";
 document.getElementById("loading").style.display = "none";
 
 
