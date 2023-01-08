@@ -15,7 +15,7 @@ document.getElementById("loading").style.display = "none";
  async function loadThis(changedArtist) 
     {
      
-      if(changedArtist = "txt")
+      if(changedArtist == "txt")
       {
         changedArtist = "TOMORROW X TOGETHER";
       }
