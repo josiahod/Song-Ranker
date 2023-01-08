@@ -38,6 +38,6 @@ document.getElementById("loading").style.display = "none";
     var buttonArtist = document.getElementById("ArtistButton");
     buttonArtist.addEventListener('click', function() 
     { 
-     changedArtist = prompt("Pick A New Artist");
+     changedArtist = prompt("Pick A New Artist").trim();
      loadThis(changedArtist);
     }, false);
