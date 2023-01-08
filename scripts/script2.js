@@ -15,7 +15,7 @@ document.getElementById("loading").style.display = "none";
  async function loadThis(changedArtist) 
     {
      
-      if(changedArtist == "txt")
+      if(changedArtist.toUpperCase() == "TXT")
       {
         changedArtist = "TOMORROW X TOGETHER";
       }
