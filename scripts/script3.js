@@ -1,6 +1,7 @@
 async function makeList(albumList) 
     {
 
+      var start = new Date().getTime();
 
 
     var myPix = new Array("img/Ghost.gif", "img/hourglass.gif", "img/Rhombus.gif", "img/book.gif", "img/plant.gif" );  
@@ -41,6 +42,8 @@ async function makeList(albumList)
         el.value = opt;
         select.appendChild(el);
 
+   var newSongList = new Array();
+    
 
      for(var i = 0; i < albumList.length; i++)
      {
@@ -49,38 +52,31 @@ async function makeList(albumList)
             let newEncode = encodeURIComponent(albumList[i]);
             var url2 = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + artNames.dataset.artist + "&album=" + newEncode + "&format=json";
             let obj2 = await (await fetch(url2)).json();
+            newSongList.push(albumList[i]);
             var length = obj2.album.tracks.track.length;
             if( isNaN(length) )
             {
-                
-            }
-         } 
-         catch (error) 
-         {
-            console.log("removed", albumList[i]);
-            albumList.splice(i, 1);
-         }
-     }
-
-     for(var i = 0; i < albumList.length; i++)
-     {
-         try 
-         {
-            let newEncode = encodeURIComponent(albumList[i]);
-            var url2 = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + artNames.dataset.artist + "&album=" + newEncode + "&format=json";
-            let obj2 = await (await fetch(url2)).json();
-            var length = obj2.album.tracks.track.length;
-            if( isNaN(length) )
-            {
-                console.log("removed", albumList[i]);
+            console.log("removed", albumList[i], " one track");
             albumList.splice(i, 1);
             }
          } 
             catch (error) 
             {
-                
+               console.log("removed", albumList[i], " error");
+               albumList.splice(i, 1);
             }
      }
+
+     albumList = albumList.filter(function(val) {
+      return newSongList.indexOf(val) >= 0;
+    });
+
+   console.log(albumList);
+   //console.log(newSongList);
+
+
+
+
 
      
       for(var i = 0; i < albumList.length; i++) 
@@ -105,7 +101,9 @@ async function makeList(albumList)
       objTo2.textContent = "Select An Album By " + artNames.dataset.artist + " To Rank";
 
 
-      
+      var end = new Date().getTime();
+      var time = end - start;
+      console.log(time + "ms");
 
     }
         
