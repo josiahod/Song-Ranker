@@ -5,6 +5,15 @@
 
     async function load(album, newArtist) 
     {
+
+      function readArr(arr)
+      {
+        console.log(arr.length);
+      }
+      
+
+
+
       Encodedalbum = encodeURIComponent(album);
 
       document.getElementById('header').innerHTML = ""; 
@@ -18,6 +27,8 @@
       let obj = await (await fetch(url)).json();
       var namMember = new Array();
       namMember.splice(0, namMember.length);
+      namMember.length = 0;
+
       try {
         for (var i = 0; i < obj.album.tracks.track.length; i++) 
       {
@@ -36,19 +47,31 @@
       var src = document.getElementById("header");
       src.appendChild(img);
 
+
       var lstMember = new Array();
       lstMember.splice(0, lstMember.length);
+      lstMember.length = 0;
+
 
       var parent = new Array();
       parent.splice(0, parent.length);
+      parent.length = 0;
+
+
       
       var equal = new Array();
       equal.splice(0, equal.length);
+      equal.length = 0;
+
 
       var rec = new Array();
       rec.splice(0, rec.length);
+      rec.length = 0;
+
 
       var cmp1, cmp2;
+      console.log(cmp1);
+
 
       var head1, head2;
 
@@ -82,6 +105,8 @@
         //The sequence that you should sort
 
         lstMember[n] = new Array();
+        lstMember[n].length = 0;
+
         
 
         for (i = 0; i < namMember.length; i++) {
@@ -110,6 +135,7 @@
 
             lstMember[n] = new Array();
 
+
             lstMember[n] = lstMember[i].slice(0, mid);
 
             totalSize += lstMember[n].length;
@@ -119,6 +145,7 @@
             n++;
 
             lstMember[n] = new Array();
+
 
             lstMember[n] = lstMember[i].slice(mid, lstMember[i].length);
 
@@ -161,6 +188,7 @@
 
 
         cmp1 = lstMember.length - 2;
+        console.log(cmp1);
 
         cmp2 = lstMember.length - 1;
 
@@ -190,9 +218,9 @@
 
       function sortList(flag) {
 
-        var i;
+        var i = 0;
 
-        var str;
+        var str = "";
 
 
 
@@ -351,6 +379,8 @@
           lstMember.pop();
 
           cmp1 = cmp1 - 2;
+          console.log(cmp1);
+
 
           cmp2 = cmp2 - 2;
 
@@ -379,6 +409,8 @@
 
 
         if (cmp1 < 0) {
+
+          console.log(cmp1);
 
 
 
@@ -587,17 +619,18 @@
       }
     }, false);
 
-   
+    var exit = document.getElementById("selectNumber");
+    exit.addEventListener('change', function() 
+    { 
+      cmp1 = -1;
+    }, false);
+
+    
 
 
     }
 
    
-
-
-
-
-
     var j = document.getElementById("selectNumber");
     j.addEventListener('change', function() 
     { 
