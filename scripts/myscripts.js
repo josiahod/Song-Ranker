@@ -38,6 +38,12 @@
       } catch (error) 
       {
       }
+        
+        if(album == "Reputation")
+      {
+    namMember =  new Array("Ready for It?", "End Game", 	"I Did Something Bad", 	"Don't Blame Me", "Delicate","Look What You Made Me Do", 	"So It Goes", "Gorgeous", "Getaway Car", 	"King of My Heart", 	"Dancing with Our Hands Tied", 	"Dress", 	"This Is Why We Can't Have Nice Things", 	"Call It What You Want", 	"New Year's Day"  );
+  
+    }
       
 
 
