@@ -44,6 +44,28 @@
     namMember =  new Array("Ready for It?", "End Game", 	"I Did Something Bad", 	"Don't Blame Me", "Delicate","Look What You Made Me Do", 	"So It Goes", "Gorgeous", "Getaway Car", 	"King of My Heart", 	"Dancing with Our Hands Tied", 	"Dress", 	"This Is Why We Can't Have Nice Things", 	"Call It What You Want", 	"New Year's Day"  );
   
     }
+
+    if(album == "eternal sunshine")
+    {
+  namMember =  new Array("intro (end of the world)",
+  "bye",
+  "don't wanna break up again",
+  "Saturn Returns Interlude",
+  "eternal sunshine",
+  "supernatural",
+  "true story",
+  "the boy is mine",
+  "yes, and?",
+  "we cant be friends (wait for your love)",
+  "i wish i hated you",
+  "imperfect for you",
+  "ordinary things (Ft. Nonna)",
+  "supernatural (Remix) by Ariana Grande & Troye Sivan",
+  "imperfect for you (acoustic)",
+  "true story (a cappella)",
+  "yes, and? by Ariana Grande & Mariah Carey" );
+
+  }
       
 
 
