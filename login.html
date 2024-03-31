@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!doctype HTML>
+
+
+<html>
+  <head>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EKWK7Z5KDH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EKWK7Z5KDH');
+    </script>
+
+    <style>
+        html, body 
+        {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container 
+        {
+            text-align: center;
+        }
+
+        #GuestButton, #UsernameButton
+        {
+        margin-top: 5%;
+        width: 90%;
+        }
+
+
+
+    </style>
+
+
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Album Ranker</title>
+  <meta property="og:title" content="Custom Album Ranker">
+  <meta name="twitter:title" content="Custom Album Ranker">
+  
+  <meta name="description" content="Rank the tracks for any album you desire">
+   <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:description" content="Rank the tracks for any album you desire">
+  <meta name="twitter:description" content="Rank the tracks for any album you desire">
+  
+  <meta property="og:image" content="img/icon.png">
+  <meta name="twitter:image" content="img/icon.png">
+
+ 
+  
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+  <meta http-equiv="Content-Style-Type" content="text/css">
+
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta http-equiv="x-dns-prefetch-control" content="off" />
+
+
+</head>
+
+<body text="#000000" bgcolor="#ffffff" link="#e097d9" vlink="#e097d9" alink="#79a2c9">
+
+
+  
+  <center>
+    <div id="container">
+        <div id="UsernameDiv">
+          <button id="UsernameButton" class="button-36" role="button" onclick="lastfmlogin()">Sign-in with Last.Fm Username</button>
+        </div>
+        <div id="GuestButtonDiv">
+          <button id="GuestButton" class="button-36" role="button" onclick="guestlogin()">Continue as a Guest</button>
+        </div>
+      </div>
+</center>
+
+<script>
+    function lastfmlogin()
+    {
+    var username = prompt("Enter Last.Fm Username");
+    window.location.href = "index.html?username=" + encodeURIComponent(username);
+    }
+    function guestlogin()
+    {
+    window.location.href = "index.html?username=null";
+    }
+</script>
+
+</body>
+
+
+</html>

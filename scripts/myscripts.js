@@ -5,14 +5,25 @@
 
     async function load(album, newArtist) 
     {
+      try{
+        var favoritestar2 = document.querySelector('.favorite-button-filled');
+        favoritestar2.classList.remove('favorite-button-filled');
+        favoritestar2.classList.add('favorite-button'); 
+        console.log(favoritestar2);
+        }
+        catch(e)
+        {
+          console.log("error in star");
+        }
 
       function readArr(arr)
       {
         console.log(arr.length);
       }
-      
-
-
+      if (username != "null")
+      {
+      document.getElementById("star").style.display = "inline-block";
+      }
 
       Encodedalbum = encodeURIComponent(album);
 
@@ -23,7 +34,7 @@
       var objTo = document.getElementById('AlbumName');
       objTo.textContent = album + " Ranking";
 
-      var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + newArtist + "&album=" + Encodedalbum + "&format=json";
+      var url = "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" + apikey + "&artist=" + newArtist + "&album=" + Encodedalbum + `&username=${username}`+ "&format=json";
       let obj = await (await fetch(url)).json();
       var namMember = new Array();
       namMember.splice(0, namMember.length);
@@ -68,13 +79,20 @@
   }
       
 
-
       var src = document.getElementById("header");
       var img = document.createElement("img");
       img.src = obj.album.image[3]['#text'] ;
       var src = document.getElementById("header");
+      if (username != "null")
+      {
+      var playcount = document.createElement("p");
+      playcount.innerText = "playcount: "+ obj.album.userplaycount;
+      }
       src.appendChild(img);
-
+      if (username != "null")
+      {
+      src.appendChild(playcount);
+      }
 
       var lstMember = new Array();
       lstMember.splice(0, lstMember.length);
@@ -497,7 +515,7 @@
 
 
 
-        str += "<table style=\"width:200px; color: black; font-size:18px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #000; border-collapse:collapse\" align=\"center\">";
+        str += "<table style=\"width:200px; color: white; font-size:18px; line-height:120%; margin-left:auto; margin-right:auto; border:1px solid #FFF; border-collapse:collapse\" align=\"center\">";
         str += "<caption>" + album + " Ranking</caption>";
         var hue = Math.floor(Math.random() * 360),
         saturation =  100,
@@ -510,7 +528,7 @@
 
         for (i = 0; i < namMember.length; i++) {
 
-          str += "<tr><td style=\"border:1px solid #000; text-align:center; padding-right:5px;\">" + ranking + "<\/td><td style=\"border:1px solid #000; padding-left:5px;\">" + namMember[lstMember[0][i]] + "<\/td><\/tr>";
+          str += "<tr><td style=\"border:1px solid #FFF; text-align:center; padding-right:5px;\">" + ranking + "<\/td><td style=\"border:1px solid #FFF; padding-left:5px;\">" + namMember[lstMember[0][i]] + "<\/td><\/tr>";
 
           if (i < namMember.length - 1) {
 
@@ -671,4 +689,6 @@
       var newArtist = artNames.dataset.artist;
       load(j.value, newArtist); 
     }, false);
+
+
     

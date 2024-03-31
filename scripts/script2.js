@@ -5,6 +5,51 @@ document.getElementById("AlbumName").style.display = "none";
 document.getElementById("selectNumber").style.display = "none";
 document.getElementById("loading").style.display = "none";
 
+ 
+function favoriteAlbum()
+{
+  var favoritestar = document.querySelector('.favorite-button');
+  console.log(favoritestar);
+  favoritestar.classList.remove('favorite-button');
+  console.log(favoritestar);
+  favoritestar.classList.add('favorite-button-filled');  
+  var artistVal = artNames.dataset.artist;
+  var albumVal = j.value;
+  console.log(albumVal);
+  const favoriteUrl = 'https://codd.cs.gsu.edu/~jodunade1/php/songRanker.php';
+  const data = {
+    username: username,
+    artist: artistVal,
+    album: albumVal
+  };
+
+  fetch(favoriteUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
+  }
+
+  var star = document.getElementById("star");
+  star.addEventListener('click', function()
+  { 
+    favoriteAlbum();
+  }, false);
+
 
 
 
@@ -24,6 +69,7 @@ document.getElementById("loading").style.display = "none";
       
       albumList = [];
       var url = "https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=" + changedArtist + "&autocorrect=1&api_key=" + apikey + "&format=json";
+      console.log(url);
       let obj = await (await fetch(url)).json();
       console.log(obj);
       for (var i = 0; (i < obj.topalbums.album.length) && (i < 20); i++) 
@@ -36,15 +82,20 @@ document.getElementById("loading").style.display = "none";
 
       if(changedArtist.toUpperCase() == "ARIANA GRANDE")
       {
-       console.log("ariana!");
        albumList.push("eternal sunshine");
-      }
+      } 
+
+           if(changedArtist.toUpperCase() == "BEYONCE")
+      {
+       albumList.push("COWBOY CARTER");
+      } 
 
 
       makeList(albumList);
     
      
-    }
+    }document.getElementById('AlbumName')
+
 
     var buttonArtist = document.getElementById("ArtistButton");
     buttonArtist.addEventListener('click', function() 

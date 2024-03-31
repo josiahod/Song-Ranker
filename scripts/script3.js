@@ -1,12 +1,19 @@
+var urlParams = new URLSearchParams(window.location.search);
+var username = urlParams.get('username');
 async function makeList(albumList) 
     {
 
       var start = new Date().getTime();
 
-
+      document.getElementById("star").style.display = "none";
     var myPix = new Array("img/Ghost.gif", "img/hourglass.gif", "img/Rhombus.gif", "img/book.gif", "img/plant.gif" );  
     var randomNum = Math.floor(Math.random() * myPix.length);
      document.getElementById("loading").src = myPix[randomNum];
+     if(changedArtist.toUpperCase() == "BEYONCE")
+     {
+      document.getElementById("loading").src = "img/horse.gif";
+     }
+
 
 
 
@@ -54,6 +61,7 @@ async function makeList(albumList)
             let obj2 = await (await fetch(url2)).json();
             newSongList.push(albumList[i]);
             var length = obj2.album.tracks.track.length;
+            console.log(albumList[i], url2);
             if( isNaN(length) )
             {
             console.log("removed", albumList[i], " one track");
@@ -66,6 +74,8 @@ async function makeList(albumList)
                albumList.splice(i, 1);
             }
      }
+
+ 
 
      albumList = albumList.filter(function(val) {
       return newSongList.indexOf(val) >= 0;
@@ -93,7 +103,7 @@ async function makeList(albumList)
       
    
       document.getElementById("selectNumber").style.display = "block";
-      document.getElementById("ArtistButton").style.display = "block";
+      document.getElementById("ArtistButton").style.display = "inline-block";
 
       document.getElementById("AlbumName").style.display = "block";
 
