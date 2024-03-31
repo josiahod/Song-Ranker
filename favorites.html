@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="css/style.css" />
 <title>Album Ranker</title>
 <style>
-     html, body {
+    html, body {
         height: 100%;
         margin: 0;
         display: flex;
@@ -14,13 +14,17 @@
         align-items: center;
     }
 
+    #table-container {
+        max-width: 800px; /* Optional: Set a maximum width */
+        max-height: 800px; /* Optional: Set a maximum height */
+        overflow: auto; /* Add scrollbars if table exceeds container dimensions */
+    }
+
     table {
         border-collapse: collapse;
-        width: 80%; /* Adjust the width as needed */
-        max-width: 800px; /* Optional: Set a maximum width */
-        height: 100%; /* Adjust the height as needed */
-        max-height: 800px; /* Optional: Set a maximum height */
+        width: 100%; /* Full width */
         font-size: large;
+        margin: 0 auto; /* Center horizontally */
     }
 
     th, td {
@@ -29,14 +33,14 @@
         text-align: center;
     }
 
-      /* Media query for small screens */
-      @media (max-width: 600px) {
+    /* Media query for small screens */
+    @media (max-width: 600px) {
         table {
             font-size: 25px; /* Decrease font size for better readability on small screens */
         }
         th, td {
-        border: 1px solid white;
-         }
+            border: 1px solid white;
+        }
     }
 </style>
 </head>
