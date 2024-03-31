@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!doctype HTML>
+
+
+<html>
+  <head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EKWK7Z5KDH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EKWK7Z5KDH');
+    </script>
+
+
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Album Ranker</title>
+  <meta property="og:title" content="Custom Album Ranker">
+  <meta name="twitter:title" content="Custom Album Ranker">
+  
+  <meta name="description" content="Rank the tracks for any album you desire">
+   <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:description" content="Rank the tracks for any album you desire">
+  <meta name="twitter:description" content="Rank the tracks for any album you desire">
+  
+  <meta property="og:image" content="img/icon.png">
+  <meta name="twitter:image" content="img/icon.png">
+
+ 
+  
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+
+  <meta http-equiv="Content-Style-Type" content="text/css">
+
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+  <meta http-equiv="x-dns-prefetch-control" content="off" />
+
+
+</head>
+
+<body text="#000000" bgcolor="#ffffff" link="#e097d9" vlink="#e097d9" alink="#79a2c9">
+
+  <div style="position: fixed; top: 0; right: 0; padding: 10px;">
+    <a id="favoritesLink" style="margin-right: 10px;">Favorites</a>
+    <a href="index.html" style="margin-right: 10px;">Sign Out</a>
+  </div>  
+  <p id="artNames" data-artist=""> </p>
+  
+  <center>
+  <select id="selectNumber">
+    <option></option>
+  </select>
+  
+
+  <div id="NewArtistButtonv" class="artistbuttfon-container">
+    <button id="ArtistButton" class="button-36" role="button">Pick An Artist</button>
+    <span class="favorite-button" id="star"></span>
+  </div>
+
+
+  <img SRC="img/ghost.gif" margin-top= "5%" width= "15%" height= "auto"; id="loading">
+
+
+  
+  
+
+
+</center>
+
+
+
+  
+    <center>
+      <p id="AlbumName">Select An Artist</p>
+
+      <div id="header"></div>
+
+    </center>
+
+    <div id="myBar"></div>
+
+
+    <center>
+  <table id="mainTable" align="center">
+  </center>
+ 
+
+    <tbody>
+      <tr>
+
+        <div id="myProgress">
+        </div>
+        <td id="battleNumber" colspan="3" style="padding-bottom: 10px;" style="text-align:center;"><b>Question 1<br>0 percent
+            completed.</b></td>
+
+      </tr>
+
+      <tr>
+
+        <!-- onclick="if(finishFlag==0) sortList(-1);"  -->
+        <td id="leftField" rowspan="2" style="text-align:center;"></td>
+
+
+        <!-- onclick="if(finishFlag==0) sortList(0);" -->
+        <!-- <td class="middleField"  style="text-align:center;">
+
+          Hate Both
+
+        </td>
+ -->
+        <!-- onclick="if(finishFlag==0) sortList(1);" -->
+        <td id="rightField"  rowspan="2" style="text-align:center;"></td>
+
+      </tr>
+
+      <tr>
+
+        <!-- onclick="if(finishFlag==0) sortList(0);" -->
+       <!--  <td class="middleField"  style="text-align:center;">
+
+          Love Both
+
+        </td>
+ -->
+      </tr>
+
+    </tbody>
+  </table>
+
+
+  <center>
+
+   
+     <div id="resultField" style="text-align: center; ">
+  </center>
+    <br>
+
+  </div>
+
+  <p class="other">
+    </small></center></small>
+  </p>
+
+  
+
+
+</body>
+
+<script src="scripts/script2.js"></script>
+<script src="scripts/script3.js"></script>
+  <script src="scripts/myscripts.js"></script>
+  <script>
+    if(username == "null")
+    {
+      document.getElementById('favoritesLink').style.display = "none";
+
+    }
+    var url = "favorites.html?username=" + encodeURIComponent(username);
+    document.getElementById('favoritesLink').href = url;
+    console.log(document.getElementById('favoritesLink').href);
+</script>
+
+<link rel="stylesheet" type="text/css" href="css/loading-bar.css"/>
+<script type="text/javascript" src="scripts/loading-bar.js"></script>
+
+</html>
