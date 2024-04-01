@@ -23,6 +23,31 @@
       if (username != "null")
       {
       document.getElementById("star").style.display = "inline-block";
+      fetch('https://codd.cs.gsu.edu/~jodunade1/php/checkFavorites.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            'lastfmid': username,
+            'artist': newArtist,
+            'album': album
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        data = data.result;
+        if(typeof data === 'string')
+        {
+          console.log(data);
+        }  
+        else
+        {
+          var favoritestar = document.querySelector('.favorite-button');
+          favoritestar.classList.remove('favorite-button');
+          favoritestar.classList.add('favorite-button-filled');  
+          }
+    })
       }
 
       Encodedalbum = encodeURIComponent(album);
