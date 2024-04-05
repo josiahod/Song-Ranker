@@ -43,7 +43,7 @@ async function makeList(albumList)
 
      removeOptions(select);
 
-     var opt = "Pick An Album";
+     var opt = "Select Album Here";
         var el = document.createElement("option");
         el.textContent = opt;
         el.value = opt;
