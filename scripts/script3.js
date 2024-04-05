@@ -113,6 +113,5 @@ async function makeList(albumList)
 
       var end = new Date().getTime();
       var time = end - start;
-      console.log(time + "ms");
     }
         
