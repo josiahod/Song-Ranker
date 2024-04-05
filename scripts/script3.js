@@ -82,6 +82,10 @@ async function makeList(albumList)
     });
 
    console.log(albumList);
+   if(changedArtist.toUpperCase() == "CONAN GRAY")
+  {
+   albumList.push("Found Heaven");
+  }
    //console.log(newSongList);
 
 

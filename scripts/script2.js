@@ -130,6 +130,8 @@ function favoriteAlbum()
        albumList.push("eternal sunshine");
       } 
 
+
+
            if(changedArtist.toUpperCase() == "BEYONCE")
       {
        albumList.push("COWBOY CARTER");
