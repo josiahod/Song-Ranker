@@ -51,11 +51,9 @@
       }
 
       Encodedalbum = encodeURIComponent(album);
-
       document.getElementById('header').innerHTML = ""; 
       document.getElementById("mainTable").style.display = "initial";
       document.getElementById("myBar").style.display = "block";
-
       var objTo = document.getElementById('AlbumName');
       objTo.textContent = album + " Ranking";
 

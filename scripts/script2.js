@@ -47,7 +47,52 @@ function favoriteAlbum()
   var star = document.getElementById("star");
   star.addEventListener('click', function()
   { 
+    if (!document.querySelector('.favorite-button'))
+    {
+      console.log("album is favorited");
+      try
+      {
+        var removeFavorite = document.querySelector('.favorite-button-filled');
+        removeFavorite.classList.remove('favorite-button-filled');
+        removeFavorite.classList.add('favorite-button'); 
+
+            const favoriteUrl = 'https://codd.cs.gsu.edu/~jodunade1/php/removeFave.php';
+            const data = {
+            username: username,
+            artist:  artNames.dataset.artist,
+            album: j.value
+          };
+
+          fetch(favoriteUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log(data);
+          })
+          .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+          });
+
+        }
+        catch(e)
+        {
+          console.log("error in star");
+        }
+    }
+    else
+    {
     favoriteAlbum();
+    }
   }, false);
 
 
