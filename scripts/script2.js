@@ -130,6 +130,12 @@ function favoriteAlbum()
        albumList.push("eternal sunshine");
       } 
 
+      if(changedArtist.toUpperCase() == "TAYLOR SWIFT")
+      {
+       albumList.push("The Tortured Poets Department");
+       albumList.push("The Tortured Poets Department: The Anthology");
+      } 
+
 
 
            if(changedArtist.toUpperCase() == "BEYONCE")
